@@ -36,6 +36,11 @@ get_header();
         "category_name" => "nouvelle",
         "posts_per_page" => 3
     );
+
+/*
+        "orderby" => "date",
+        "order" => "ASC"
+*/
     $query1 = new WP_Query( $args );
     
     // The Loop
@@ -55,7 +60,11 @@ get_header();
     
     
     /* The 2nd Query (without global var) */
-    /*
+    $args2 = array(
+        "category_name" => "evenement",
+        "posts_per_page" => 10
+    )
+    
     $query2 = new WP_Query( $args2 );
     
     // The 2nd Loop
@@ -66,7 +75,7 @@ get_header();
     
     // Restore original Post Data
     wp_reset_postdata();
-    */
+    
 	?>
 
 		</main><!-- #main -->
