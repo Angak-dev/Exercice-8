@@ -30,6 +30,8 @@ get_header();
 			endif;
 
         endwhile; // End of the loop.
+
+        echo '<h2>' . category_description( get_category_by_slug( 'nouvelle' ) ). '</h2>';
         
     // The Query
     $args = array(
@@ -63,14 +65,15 @@ get_header();
     $args2 = array(
         "category_name" => "evenement",
         "posts_per_page" => 10
-    )
-    
+    );
+
     $query2 = new WP_Query( $args2 );
     
     // The 2nd Loop
     while ( $query2->have_posts() ) {
         $query2->the_post();
-        echo '<li>' . get_the_title( $query2->post->ID ) . '</li>';
+        echo '<h2>' . get_the_title( $query2->post->ID ) . '</h2>';
+        echo '<img>' . get_the_post_thumbnail(null, "thumbnail");
     }
     
     // Restore original Post Data
